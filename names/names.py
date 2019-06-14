@@ -11,10 +11,18 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+dictionary = dict()
+for name in names_1:
+    dictionary[name] = name
+
+for name2 in names_2:
+    if dictionary.get(name2):
+        duplicates.append(name2)
 
 
 end_time = time.time()
